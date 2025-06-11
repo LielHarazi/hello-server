@@ -13,7 +13,7 @@ app.get("/about", (requst, response) => {
 });
 
 app.use((request, response) => {
-  response.sendFile(path.join(__dirname, "public", "not-found-page.html"));
+  response.sendFile(path.join(__dirname, "public", "notFound.html"));
 });
 
 app.listen(PORT, () => {
