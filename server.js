@@ -8,12 +8,15 @@ app.use(express.static("Public"));
 app.get("/", (request, response) => {
   response.sendFile(path.join(__dirname, "Public", "index.html"));
 });
-app.get("/about", (requst, response) => {
+app.get("/about", (request, response) => {
   response.send("bobi");
 });
 
+// 404 handler for any unmatched route
 app.use((request, response) => {
-  response.sendFile(path.join(__dirname, "public", "notFound.html"));
+  response
+    .status(404)
+    .sendFile(path.join(__dirname, "Public", "notFound.html"));
 });
 
 app.listen(PORT, () => {
