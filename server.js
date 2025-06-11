@@ -12,6 +12,10 @@ app.get("/about", (requst, response) => {
   response.send("bobi");
 });
 
+app.use((res) => {
+  res.status(404).sendFile(path.join(__dirname, "Public", "404.html"));
+});
+
 app.listen(PORT, () => {
   console.log(`serve listening at http://localhost:${PORT}/`);
 });
