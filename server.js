@@ -12,8 +12,8 @@ app.get("/about", (requst, response) => {
   response.send("bobi");
 });
 
-app.use((res) => {
-  res.status(404).sendFile(path.join(__dirname, "Public", "404.html"));
+app.use((request, response) => {
+  response.sendFile(path.join(__dirname, "public", "not-found-page.html"));
 });
 
 app.listen(PORT, () => {
